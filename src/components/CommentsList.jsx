@@ -14,6 +14,7 @@ export const CommentsList = () => {
 
     asyncGetComments();
   }, []);
+
   return (
     <>
       <section className="comment-list">

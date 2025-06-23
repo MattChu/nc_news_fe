@@ -18,7 +18,7 @@ export const ArticleList = () => {
       <section className="article-list">
         <h4>Articles</h4>
         {articles.map((article) => (
-          <ArticlePreview key={article.id} article={article} />
+          <ArticlePreview key={article.article_id} article={article} />
         ))}
       </section>
     </>
