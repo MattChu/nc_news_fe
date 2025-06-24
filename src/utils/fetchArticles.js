@@ -4,7 +4,7 @@ export async function fetchArticles(topic, sort_by, order) {
     url += "?";
   }
 
-  if (topic) {
+  if (topic && topic !== "All") {
     url += `&topic=${topic}`;
   }
 

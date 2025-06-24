@@ -5,8 +5,6 @@ import { Home } from "./components/Home";
 import { Topics } from "./components/Topics";
 import { TopicRedirect } from "./components/TopicRedirect";
 
-import "./index.css";
-
 function App() {
   return (
     <>

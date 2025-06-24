@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ArticlePreview } from "./ArticlePreview";
 import { QueryProvider } from "./QueryProvider";
+import { Loader } from "./Loader";
+import { Uhoj } from "./Uhoj";
+
+import { Typography, LinearProgress, Grid } from "@mui/material";
 
 export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -34,22 +38,20 @@ export const ArticleList = () => {
 
   const renderArticles = () => {
     if (isLoading) {
-      return <h2> Loading Articles...</h2>;
+      return <Loader />;
     }
     if (isErr) {
       return <Uhoj />;
     }
     return (
-      <section className="articlesview">
+      <Grid container>
         <QueryProvider />
-        <section className="article-list">
-          {" "}
-          <h4>Articles</h4>
+        <Grid margin={3} container spacing={3} sx={{ flexGrow: 1 }} justifyContent="center" alignItems="flex-start">
           {articles.map((article) => (
             <ArticlePreview key={article.article_id} article={article} />
           ))}
-        </section>
-      </section>
+        </Grid>
+      </Grid>
     );
   };
 
