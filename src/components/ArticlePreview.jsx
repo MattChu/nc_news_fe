@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-const ArticlePreview = ({ article }) => {
+export const ArticlePreview = ({ article }) => {
   const published = String(new Date(article.created_at));
   return (
     <section className="articlepreview">
@@ -15,5 +15,3 @@ const ArticlePreview = ({ article }) => {
     </section>
   );
 };
-
-export default ArticlePreview;
