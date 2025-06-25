@@ -1,7 +1,7 @@
 import { deleteComment } from "../utils/deleteComment";
 import { useState } from "react";
 
-export function DeleteComment({ setComments, comment_id, comments, index }) {
+export function DeleteComment({ setComments, comment_id, comments, index, setCommentCount }) {
   const [isErr, setIsErr] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -13,6 +13,7 @@ export function DeleteComment({ setComments, comment_id, comments, index }) {
       await deleteComment(comment_id);
       setIsLoading(false);
       setComments([...comments.splice(index, 1)]);
+      setCommentCount((prev) => prev - 1);
     } catch (err) {
       setIsLoading(false);
       setIsErr(true);

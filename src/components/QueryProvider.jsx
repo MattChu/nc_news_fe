@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchTopics } from "../utils/fetchTopics";
-import { FormControl, InputLabel, Select, MenuItem, Container, Typography } from "@mui/material";
+import { FormControl, InputLabel, Select, MenuItem, Grid, Typography } from "@mui/material";
 
 export const QueryProvider = () => {
   const [topics, setTopics] = useState([]);
@@ -22,8 +22,23 @@ export const QueryProvider = () => {
   }, []);
 
   return (
-    <Container sx={{ margin: 0 }}>
-      <FormControl margin="normal" variant="outlined" size="small" sx={{ maxWidth: 300 }}>
+    <Grid
+      container
+      sx={{
+        zIndex: 1300,
+        position: "sticky",
+        bgcolor: "white",
+        top: 84,
+        alignSelf: "flex-start",
+        boxShadow: 10,
+        p: 2,
+        borderRadius: 1,
+        alignItems: "center",
+        justifyContent: "flex-start",
+      }}
+      spacing={1}
+    >
+      <FormControl variant="outlined" size="small" fullwidth="true" sx={{ maxWidth: 320 }}>
         <InputLabel id="sort_by">Sort By:</InputLabel>
         <Select
           onChange={(e) => setSearchParams({ order, topic, sort_by: e.target.value })}
@@ -31,13 +46,14 @@ export const QueryProvider = () => {
           name="sort"
           value={sort_by}
           label="sort_By"
+          sx={{ width: { xs: 100, md: "auto" } }}
         >
           <MenuItem value="created_at">Created At</MenuItem>
           <MenuItem value="votes">Votes</MenuItem>
           <MenuItem value="comment_count">Comment Count</MenuItem>
         </Select>
       </FormControl>
-      <FormControl margin="normal" variant="outlined" size="small" sx={{ maxWidth: 300 }}>
+      <FormControl variant="outlined" size="small" sx={{ maxWidth: 320 }}>
         <InputLabel id="order">Order:</InputLabel>
         <Select
           onChange={(e) => setSearchParams({ topic, sort_by, order: e.target.value })}
@@ -45,12 +61,13 @@ export const QueryProvider = () => {
           name="order"
           value={order}
           label="order"
+          sx={{ width: { xs: 100, md: "auto" } }}
         >
           <MenuItem value="DESC">Descending</MenuItem>
           <MenuItem value="ASC">Ascending</MenuItem>
         </Select>
       </FormControl>
-      <FormControl margin="normal" variant="outlined" size="small" sx={{ maxWidth: 300 }}>
+      <FormControl variant="outlined" size="small" sx={{ maxWidth: 320 }}>
         <InputLabel id="topic">Topic:</InputLabel>
         <Select
           onChange={(e) => setSearchParams({ sort_by, order, topic: e.target.value })}
@@ -58,6 +75,7 @@ export const QueryProvider = () => {
           name="topic"
           value={topic}
           label="topic"
+          sx={{ width: { xs: 100, md: "auto" } }}
         >
           <MenuItem value="All">All</MenuItem>
           {topics.map((topic) => (
@@ -67,6 +85,6 @@ export const QueryProvider = () => {
           ))}
         </Select>
       </FormControl>
-    </Container>
+    </Grid>
   );
 };
