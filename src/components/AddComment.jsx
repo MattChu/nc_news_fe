@@ -114,67 +114,56 @@ export function AddComment({ setComments, comments, setCommentCount }) {
       );
     }
     return (
-      <Container
+      <Card
         sx={{
-          display: "flex",
-          justifyContent: "center",
+          width: "100%",
+          maxWidth: 800,
+          boxShadow: 6,
+          px: 3,
+          py: 1,
           mt: 2,
-          minWidth: 311,
         }}
       >
-        <Card
+        <Typography
+          sx={{
+            my: 1,
+          }}
+        >
+          Submit a Comment:
+        </Typography>
+
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
           sx={{
             width: "100%",
             maxWidth: 800,
-            boxShadow: 6,
-            px: 3,
-            py: 1,
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
+            gap: 2,
           }}
         >
-          <Typography
-            sx={{
-              my: 1,
-            }}
+          <TextField
+            fullWidth
+            multiline
+            rows={3}
+            label="Your comment (min 10 caracters)"
+            variant="outlined"
+            value={comment}
+            size="small"
+            onChange={handleChange}
+          />
+          <Button
+            type="submit"
+            size="small"
+            variant="contained"
+            disabled={comment.length < 10}
+            sx={{ alignSelf: "center", mb: 1 }}
           >
-            Submit a Comment:
-          </Typography>
-
-          <Box
-            component="form"
-            onSubmit={handleSubmit}
-            sx={{
-              width: "100%",
-              maxWidth: 800,
-              display: "flex",
-              flexDirection: "column",
-              gap: 2,
-            }}
-          >
-            <TextField
-              fullWidth
-              multiline
-              rows={3}
-              label="Your comment (min 10 caracters)"
-              variant="outlined"
-              value={comment}
-              size="small"
-              onChange={handleChange}
-            />
-            <Button
-              type="submit"
-              size="small"
-              variant="contained"
-              disabled={comment.length < 10}
-              sx={{ alignSelf: "center", mb: 1 }}
-            >
-              Submit Comment
-            </Button>
-          </Box>
-        </Card>
-      </Container>
+            Submit Comment
+          </Button>
+        </Box>
+      </Card>
     );
   };
 

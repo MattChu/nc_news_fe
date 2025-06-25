@@ -12,7 +12,7 @@ export function DeleteComment({ setComments, comment_id, comments, index, setCom
     try {
       await deleteComment(comment_id);
       setIsLoading(false);
-      setComments([...comments.splice(index, 1)]);
+      setComments((prev) => prev.filter((c) => c.comment_id !== comment_id));
       setCommentCount((prev) => prev - 1);
     } catch (err) {
       setIsLoading(false);

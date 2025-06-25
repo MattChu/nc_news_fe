@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Comment } from "./Comment";
 import { AddComment } from "./AddComment";
-import { Container, Grid, Typography, Box } from "@mui/material";
+import { Stack, Grid, Typography, Box } from "@mui/material";
 
 export const CommentsList = ({ setCommentCount, comment_count }) => {
   const { article_id } = useParams();
@@ -13,7 +13,6 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log("comment fetcher mounted");
     const asyncGetComments = async () => {
       setIsErr(false);
       setIsLoading(true);
@@ -29,9 +28,7 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
 
     asyncGetComments();
   }, []);
-  console.log(comments.length);
   const sortedComments = [...comments].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
   const renderComments = () => {
     if (isLoading) {
       return <h2> Loading Comments...</h2>;
@@ -40,13 +37,21 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
       return <h2>Failed to Load Comments</h2>;
     }
     return (
-      <Container>
-        <AddComment setComments={setComments} setCommentCount={setCommentCount} comments={comments} />
-        <Box sx={{ p: 1, m: 2, mb: 0, textAlign: "center" }}>
+      <Stack>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: 1,
+          }}
+        >
+          <AddComment setComments={setComments} setCommentCount={setCommentCount} comments={comments} />
+        </Box>
+        <Box sx={{ m: 1, textAlign: "center" }}>
           <Typography variant="h6">Comments</Typography>
         </Box>
         <Grid
-          margin={2}
+          margin={1}
           container
           spacing={1}
           sx={{ flexWrap: "none", justifyContent: "center", alignItems: "flex-start" }}
@@ -61,7 +66,7 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
             />
           ))}
         </Grid>
-      </Container>
+      </Stack>
     );
   };
 

@@ -34,7 +34,7 @@ export const Article = () => {
     };
 
     asyncGetArticle();
-  }, [article_id]);
+  }, []);
 
   const renderArticle = () => {
     if (isLoading) {
