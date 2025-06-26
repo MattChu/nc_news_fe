@@ -33,6 +33,7 @@ export const QueryProvider = () => {
           boxShadow: 10,
           p: 1.5,
           mb: 3,
+          ml: 1,
           borderRadius: 1,
           alignItems: "center",
           justifyContent: "flex-start",

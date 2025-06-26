@@ -34,24 +34,24 @@ export const Article = () => {
     };
 
     asyncGetArticle();
-  }, [comment_count]);
+  }, []);
 
   const renderArticle = () => {
     if (isLoading) {
-      return (
-        <Box sx={{ bgcolor: "tomato" }}>
-          <Loader />
-        </Box>
-      );
+      return <Loader />;
     }
     if (isErr) {
       return <Uhoj />;
     }
+
     return (
       <Container sx={{ pb: 3, pl: 0, px: 0 }}>
         <Card sx={{ maxWidth: 1200, boxShadow: 10 }}>
-          {/* <CardHeader title={article.title} sx={{ textTransform: "capitalize", textAlign: "center", py: 3 }} /> */}
-          <Typography variant={"h2"} fontSize={40} sx={{ textTransform: "capitalize", textAlign: "center", py: 3 }}>
+          <Typography
+            variant={"h2"}
+            fontSize={40}
+            sx={{ textTransform: "capitalize", textAlign: "center", py: 3, px: 0.5 }}
+          >
             {article.title}
           </Typography>
           <Grid container sx={{ justifyContent: "center", alignItems: "center", display: "flex" }}>

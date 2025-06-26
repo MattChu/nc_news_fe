@@ -32,10 +32,31 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
   const sortedComments = [...comments].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   const renderComments = () => {
     if (isLoading) {
-      return <h2> Loading Comments...</h2>;
+      return (
+        <Box sx={{ display: "flex", width: 320, height: 320, textAlign: "center", justifyContent: "center" }}>
+          <h3> Loading Comments...</h3>
+        </Box>
+      );
     }
     if (isErr) {
-      return <h2>Failed to Load Comments</h2>;
+      return (
+        <Grid
+          container
+          direction="row"
+          spacing={4}
+          sx={{
+            minHeight: 104,
+            p: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <Typography color={"error"} textAlign={"center"} sx={{ p: 2.18 }}>
+            <strong>Failed to Load Comments</strong>
+          </Typography>
+        </Grid>
+      );
     }
     return (
       <Stack>
@@ -58,6 +79,7 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
               index={index}
               comment={comment}
               setComments={setComments}
+              setCommentCount={setCommentCount}
               comments={comments}
             />
           ))}

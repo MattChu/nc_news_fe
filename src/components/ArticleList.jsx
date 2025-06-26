@@ -58,6 +58,7 @@ export const ArticleList = () => {
             justifyContent: "center",
             alignItems: "flex-start",
             mt: 0,
+            mr: 0.5,
           }}
         >
           {articles.map((article) => (

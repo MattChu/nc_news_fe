@@ -1,5 +1,9 @@
-import { Box, LinearProgress } from "@mui/material";
+import { Container, LinearProgress } from "@mui/material";
 
 export const Loader = () => {
-  return <LinearProgress sx={{ width: "60%", mt: 3 }} />;
+  return (
+    <Container sx={{ display: "flex", justifyContent: "center" }}>
+      <LinearProgress sx={{ width: "60%", mt: 3 }} />
+    </Container>
+  );
 };

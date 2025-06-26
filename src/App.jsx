@@ -9,16 +9,7 @@ import { Container } from "@mui/material";
 
 function App() {
   return (
-    <Container
-      sx={{
-        p: 0,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        flexWrap: "nowrap",
-      }}
-    >
+    <>
       <Header />
       <Routes>
         <Route path={"/"} element={<Home />} />
@@ -28,7 +19,7 @@ function App() {
         <Route path={"/topics"} element={<Topics />} />
         <Route path={"/topics/:topic"} element={<TopicRedirect />} />
       </Routes>
-    </Container>
+    </>
   );
 }
 

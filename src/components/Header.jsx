@@ -26,12 +26,6 @@ export const Header = () => {
           <Button color="inherit" component={Link} to="/topics">
             Topics
           </Button>
-          <Button color="inherit" component={Link} to="/random">
-            Random Article
-          </Button>
-          <Button color="inherit" component={Link} to="/about">
-            About
-          </Button>
         </Grid>
       </Toolbar>
     </AppBar>
