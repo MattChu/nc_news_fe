@@ -45,12 +45,11 @@ export const Article = () => {
     }
 
     return (
-      <Container sx={{ pb: 3, pl: 0, px: 0 }}>
-        <Card sx={{ maxWidth: 1200, boxShadow: 10 }}>
+      <Container sx={{ maxWidth: { lg: 1600 }, p: 0 }}>
+        <Card sx={{ boxShadow: 10, p: 1.5 }}>
           <Typography
             variant={"h2"}
-            fontSize={40}
-            sx={{ textTransform: "capitalize", textAlign: "center", py: 3, px: 0.5 }}
+            sx={{ textTransform: "capitalize", textAlign: "center", py: 3, px: 0.5, fontSize: { xs: 30, md: 40 } }}
           >
             {article.title}
           </Typography>

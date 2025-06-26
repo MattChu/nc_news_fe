@@ -9,7 +9,7 @@ import { Container } from "@mui/material";
 
 function App() {
   return (
-    <>
+    <Container sx={{ maxWidth: { lg: 1600 }, p: { xs: 0, sm: 1 } }}>
       <Header />
       <Routes>
         <Route path={"/"} element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
         <Route path={"/topics"} element={<Topics />} />
         <Route path={"/topics/:topic"} element={<TopicRedirect />} />
       </Routes>
-    </>
+    </Container>
   );
 }
 
