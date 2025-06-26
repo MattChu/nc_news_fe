@@ -46,10 +46,16 @@ export const Article = () => {
 
     return (
       <Container sx={{ maxWidth: { lg: 1600 }, p: 0 }}>
-        <Card sx={{ boxShadow: 10, p: 1.5 }}>
+        <Card sx={{ justifyContent: "center", boxShadow: 10, p: 1.5 }}>
           <Typography
             variant={"h2"}
-            sx={{ textTransform: "capitalize", textAlign: "center", py: 3, px: 0.5, fontSize: { xs: 30, md: 40 } }}
+            sx={{
+              textTransform: "capitalize",
+              textAlign: "center",
+              py: 3,
+              px: 4,
+              fontSize: { xs: 30, md: 40 },
+            }}
           >
             {article.title}
           </Typography>
@@ -69,10 +75,11 @@ export const Article = () => {
                 alt={`Lead image for article ${article.title}`}
               />
             </Grid>
-            <Grid sx={{ padding: 1, mt: 2, mx: 4 }}>
+            <Grid sx={{ padding: 1, mt: 4, mx: 1 }}>
               <Typography
                 variant="body1"
                 sx={{
+                  maxWidth: 1200,
                   lineHeight: 1.2,
                   textAlign: "justify",
                 }}
@@ -81,7 +88,7 @@ export const Article = () => {
               </Typography>
             </Grid>
           </Grid>
-          <Stack spacing={1} sx={{ mx: 4, p: 1, marginBottom: 0 }}>
+          <Stack spacing={1} sx={{ mx: 4, p: 3, marginBottom: 0 }}>
             <Typography textAlign={"center"} variant="subtitle">
               Written by <strong>{article.author} </strong> on {formatDate(article.created_at)} in{" "}
               <Link to={`/topics/${article.topic}`}>{article.topic}</Link>.
@@ -91,7 +98,8 @@ export const Article = () => {
               direction="row"
               spacing={1}
               sx={{
-                p: 1,
+                pt: 3,
+                pb: 0,
                 justifyContent: "center",
                 alignItems: "center",
                 textAlign: "center",

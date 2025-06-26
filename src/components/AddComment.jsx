@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import { postComment } from "../utils/postComment";
+import { UserContext } from "../contexts/UserContext";
+import { useContext } from "react";
 import { Card, CardHeader, Container, FormControl, Stack, TextField, Button, Box, Typography } from "@mui/material";
 
 export function AddComment({ setComments, comments, setCommentCount }) {
@@ -8,6 +10,7 @@ export function AddComment({ setComments, comments, setCommentCount }) {
   const [comment, setCommentInput] = useState("");
   const [isErr, setIsErr] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
 
   const handleChange = (event) => {
     setCommentInput(event.target.value);
@@ -18,7 +21,7 @@ export function AddComment({ setComments, comments, setCommentCount }) {
     setIsErr(false);
     setIsLoading(true);
     try {
-      const response = await postComment(article_id, comment, "grumpy19");
+      const response = await postComment(article_id, comment, loggedInUser.username);
       setCommentInput("");
       setComments([...comments, response.postedComment]);
       setCommentCount((prev) => prev + 1);
@@ -105,9 +108,14 @@ export function AddComment({ setComments, comments, setCommentCount }) {
                 gap: 2,
               }}
             >
-              <Typography color={"error"} textAlign={"center"} sx={{ p: 2.18 }}>
+              <Typography color={"error"} alignItems={"center"} sx={{ p: 2.18 }}>
                 <strong>Failed to Post Comment, Please Try Again Later</strong>
               </Typography>
+              <Button sx={{ bgcolor: "red" }} variant="contained" onClick={() => window.location.reload()}>
+                <Typography variant="subtitle1" fontSize={10}>
+                  Click Here To Reload and Try Again
+                </Typography>
+              </Button>
             </Box>
           </Card>
         </Container>
@@ -160,7 +168,7 @@ export function AddComment({ setComments, comments, setCommentCount }) {
             disabled={comment.length < 10}
             sx={{ alignSelf: "center", mb: 1 }}
           >
-            Submit Comment
+            <Typography>Submit Comment</Typography>
           </Button>
         </Box>
       </Card>

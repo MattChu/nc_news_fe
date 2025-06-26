@@ -48,7 +48,7 @@ export const ArticleList = () => {
         <QueryProvider />
         <Grid sx={{ p: 1, flexGrow: 1, justifyContent: "center", alignContent: "center" }}>
           <Typography variant={"h2"} textAlign={"center"}>
-            <strong>Articles</strong>
+            Articles
           </Typography>
         </Grid>
         <Grid

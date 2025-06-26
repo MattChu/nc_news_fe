@@ -1,6 +1,7 @@
 import { deleteComment } from "../utils/deleteComment";
 import { useState } from "react";
-import { Box, Button, Typography } from "@mui/material";
+
+import { Box, Button, Typography, Grid } from "@mui/material";
 
 export function DeleteComment({ setComments, comment_id, setCommentCount }) {
   const [isErr, setIsErr] = useState(false);
@@ -41,23 +42,36 @@ export function DeleteComment({ setComments, comment_id, setCommentCount }) {
       );
     }
     if (isErr) {
-      return <h3>Failed to Delete Comment</h3>;
+      return (
+        <Grid
+          container
+          direction="row"
+          spacing={4}
+          sx={{
+            minHeight: 104,
+            p: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <Typography color={"error"} textAlign={"center"} sx={{ p: 2.18 }}>
+            <strong>Failed to Delete Comment</strong>
+          </Typography>
+          <Button sx={{ bgcolor: "red" }} variant="contained" onClick={() => window.location.reload()}>
+            <Typography variant="subtitle1" fontSize={10}>
+              Click Here To Reload and Try Again
+            </Typography>
+          </Button>
+        </Grid>
+      );
     }
     return (
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        sx={{
-          width: "100%",
-          maxWidth: 800,
-          display: "flex",
-          alignContent: "left",
-          flexDirection: "column",
-          mt: 1,
-        }}
-      >
-        <Button type="submit" size="small" variant="contained" sx={{ alignSelf: "center", mb: 1, bgcolor: "red" }}>
-          Delete This Comment
+      <Box component="form" onSubmit={handleSubmit} sx={{ pt: 2, m: 0, display: "flex", justifyContent: "right" }}>
+        <Button type="submit" size="small" variant="contained" sx={{ alignSelf: "right", bgcolor: "red" }}>
+          <Typography variant="subtitle1" fontSize={10}>
+            Delete Comment
+          </Typography>
         </Button>
       </Box>
     );

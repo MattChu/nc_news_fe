@@ -18,8 +18,8 @@ export const Topics = () => {
   console.log(topics[0]);
   return (
     <Stack sx={{ my: 2 }} spacing={3}>
-      <Typography variant={"h2"} fontSize={40} textAlign={"center"}>
-        <strong>Topics</strong>
+      <Typography variant={"h2"} textAlign={"center"}>
+        Topics
       </Typography>
       <Grid
         container

@@ -2,19 +2,22 @@ import { DeleteComment } from "./DeleteComment";
 import { formatDate } from "../utils/formatDate";
 import { Grid, Card, CardContent, Box, Typography, Divider, Badge } from "@mui/material";
 import { ThumbUp, ThumbDown } from "@mui/icons-material";
+import { UserContext } from "../contexts/UserContext";
+import { useContext } from "react";
 
 export const Comment = ({ comment, setComments, comments, setCommentCount }) => {
   const isPosiVotes = comment.votes >= 0;
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   return (
-    <Card sx={{ maxWidth: 320, boxShadow: 4 }}>
+    <Card sx={{ maxWidth: 320, boxShadow: 4, p: 2 }}>
       <CardContent>
-        <Box sx={{ my: 1 }}>
+        <Box sx={{ mt: 0, mb: 3 }}>
           <Typography gutterBottom variant="body1" sx={{ textTransform: "capitalize" }}>
             {comment.body}
           </Typography>
         </Box>
         <Divider sx={{ my: 1 }} />
-        <Box sx={{ my: 1 }}>
+        <Box sx={{ my: 3 }}>
           <Typography variant="body4" size="small" sx={{ my: 2, color: "text.secondary" }}>
             Written by {comment.author} on {formatDate(comment.created_at)}
           </Typography>
@@ -37,7 +40,7 @@ export const Comment = ({ comment, setComments, comments, setCommentCount }) => 
           </Grid>
         </Grid>
         <Grid>
-          {comment.author === "grumpy19" ? (
+          {comment.author === loggedInUser.username ? (
             <DeleteComment
               setComments={setComments}
               comment_id={comment.comment_id}

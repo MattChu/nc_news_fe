@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Comment } from "./Comment";
 import { AddComment } from "./AddComment";
-import { Stack, Grid, Typography, Box } from "@mui/material";
+import { Stack, Grid, Typography, Box, Card } from "@mui/material";
 
 export const CommentsList = ({ setCommentCount, comment_count }) => {
   const { article_id } = useParams();
@@ -33,7 +33,18 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
   const renderComments = () => {
     if (isLoading) {
       return (
-        <Box sx={{ display: "flex", width: 320, height: 320, textAlign: "center", justifyContent: "center" }}>
+        <Box
+          boxShadow={10}
+          sx={{
+            pt: 4,
+            bgcolor: "white",
+            display: "flex",
+            height: 320,
+            textAlign: "center",
+            alignSelf: "center",
+            justifyContent: "center",
+          }}
+        >
           <h3> Loading Comments...</h3>
         </Box>
       );
@@ -64,13 +75,15 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            mt: 1,
+            mt: 2,
           }}
         >
           <AddComment setComments={setComments} setCommentCount={setCommentCount} comments={comments} />
         </Box>
-        <Box sx={{ m: 1, textAlign: "center" }}>
-          <Typography variant="h6">Comments</Typography>
+        <Box sx={{ m: 4, textAlign: "center" }}>
+          <Typography variant="h3" fontSize={40}>
+            Comments
+          </Typography>
         </Box>
         <Grid container spacing={1} sx={{ flexWrap: "none", justifyContent: "center", alignItems: "flex-start" }}>
           {sortedComments.map((comment, index) => (
