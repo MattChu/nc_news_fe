@@ -14,18 +14,18 @@ export const ArticlePreview = ({ article }) => {
   const isPosiVotes = article.votes >= 0;
 
   return (
-    <Card sx={{ maxWidth: 320, boxShadow: 4 }}>
-      <CardActionArea onClick={() => navigate(`/articles/${article.article_id}`)} sx={{ maxWidth: 300, padding: 2 }}>
+    <Card sx={{ width: 320, boxShadow: 4, display: "flex", justifyContent: "center" }}>
+      <CardActionArea onClick={() => navigate(`/articles/${article.article_id}`)} sx={{ maxWidth: 320, padding: 2 }}>
         <CardMedia sx={{ height: 140, boxShadow: 4 }} image={article.article_img_url} title={article.title} />
         <CardContent>
-          <Box sx={{ my: 1 }}>
-            <Typography gutterBottom variant="body1" sx={{ textTransform: "capitalize" }}>
+          <Box sx={{ mb: 1 }}>
+            <Typography variant="body1" sx={{ textTransform: "capitalize" }}>
               {article.title}
             </Typography>
           </Box>
           <Divider sx={{ my: 1 }} />
           <Box sx={{ my: 1 }}>
-            <Typography variant="body4" size="small" sx={{ my: 2, color: "text.secondary" }}>
+            <Typography variant="body2" size="small" sx={{ my: 2, color: "text.secondary" }}>
               Written by {article.author} on {formatDate(article.created_at)}
             </Typography>
           </Box>

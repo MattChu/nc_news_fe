@@ -34,19 +34,26 @@ export const Article = () => {
     };
 
     asyncGetArticle();
-  }, []);
+  }, [comment_count]);
 
   const renderArticle = () => {
     if (isLoading) {
-      return <Loader />;
+      return (
+        <Box sx={{ bgcolor: "tomato" }}>
+          <Loader />
+        </Box>
+      );
     }
     if (isErr) {
       return <Uhoj />;
     }
     return (
-      <Container>
+      <Container sx={{ pb: 3, pl: 0, px: 0 }}>
         <Card sx={{ maxWidth: 1200, boxShadow: 10 }}>
-          <CardHeader title={article.title} sx={{ textTransform: "capitalize", textAlign: "center", py: 3 }} />
+          {/* <CardHeader title={article.title} sx={{ textTransform: "capitalize", textAlign: "center", py: 3 }} /> */}
+          <Typography variant={"h2"} fontSize={40} sx={{ textTransform: "capitalize", textAlign: "center", py: 3 }}>
+            {article.title}
+          </Typography>
           <Grid container sx={{ justifyContent: "center", alignItems: "center", display: "flex" }}>
             <Grid sx={{ display: "flex", justifyContent: "center" }}>
               <CardMedia
@@ -59,7 +66,8 @@ export const Article = () => {
                   borderRadius: 2,
                 }}
                 image={article.article_img_url}
-                title={article.title}
+                title={`Lead image for article ${article.title}`}
+                alt={`Lead image for article ${article.title}`}
               />
             </Grid>
             <Grid sx={{ padding: 1, mt: 2, mx: 4 }}>

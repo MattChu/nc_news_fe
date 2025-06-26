@@ -3,22 +3,23 @@ import { AppBar, Toolbar, Typography, Grid, Button } from "@mui/material";
 
 export const Header = () => {
   return (
-    <AppBar sx={{ mt: 1, mb: 2, position: "sticky" }}>
+    <AppBar sx={{ mt: 0, mb: 1, position: "sticky", borderRadius: 0, boxShadow: 10 }}>
       <Toolbar>
         <Typography
-          variant="h6"
+          variant="h1"
           component={Link}
           to="/"
           sx={{
+            fontSize: 20,
             flexGrow: 1,
             textDecoration: "none",
             color: "inherit",
             textAlign: { xs: "left" },
           }}
         >
-          News 4 U Direct
+          <strong>News 4 U Direct</strong>
         </Typography>
-        <Grid container sx={{ justifyContent: "flex-end" }}>
+        <Grid container sx={{ display: "flex", justifyContent: "flex-end" }}>
           <Button color="inherit" component={Link} to="/articles">
             Articles
           </Button>

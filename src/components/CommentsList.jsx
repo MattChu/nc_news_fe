@@ -27,7 +27,8 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
     };
 
     asyncGetComments();
-  }, []);
+  }, [comment_count]);
+
   const sortedComments = [...comments].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   const renderComments = () => {
     if (isLoading) {
@@ -50,12 +51,7 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
         <Box sx={{ m: 1, textAlign: "center" }}>
           <Typography variant="h6">Comments</Typography>
         </Box>
-        <Grid
-          margin={1}
-          container
-          spacing={1}
-          sx={{ flexWrap: "none", justifyContent: "center", alignItems: "flex-start" }}
-        >
+        <Grid container spacing={1} sx={{ flexWrap: "none", justifyContent: "center", alignItems: "flex-start" }}>
           {sortedComments.map((comment, index) => (
             <Comment
               key={comment.comment_id}

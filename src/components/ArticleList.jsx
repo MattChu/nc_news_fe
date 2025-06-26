@@ -6,7 +6,7 @@ import { QueryProvider } from "./QueryProvider";
 import { Loader } from "./Loader";
 import { Uhoj } from "./Uhoj";
 
-import { Grid } from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 
 export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -46,11 +46,19 @@ export const ArticleList = () => {
     return (
       <Grid container>
         <QueryProvider />
+        <Grid sx={{ p: 1, flexGrow: 1, justifyContent: "center", alignContent: "center" }}>
+          <Typography variant={"h2"} textAlign={"center"}>
+            <strong>Articles</strong>
+          </Typography>
+        </Grid>
         <Grid
-          margin={3}
           container
-          spacing={3}
-          sx={{ flexWrap: "wrap", justifyContent: "center", alignItems: "flex-start" }}
+          spacing={4}
+          sx={{
+            justifyContent: "center",
+            alignItems: "flex-start",
+            mt: 0,
+          }}
         >
           {articles.map((article) => (
             <ArticlePreview key={article.article_id} article={article} />
