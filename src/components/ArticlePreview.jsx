@@ -1,13 +1,9 @@
 import { useNavigate } from "react-router";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import CardActionArea from "@mui/material/CardActionArea";
-import Typography from "@mui/material/Typography";
-import { ThumbUp, ThumbDown } from "@mui/icons-material";
-import { ChatBubble } from "@mui/icons-material";
-import { Badge, Divider, Grid, Box } from "@mui/material";
+
 import { formatDate } from "../utils/formatDate";
+
+import { Badge, Divider, Grid, Box, CardContent, Typography, Card, CardActionArea, CardMedia } from "@mui/material";
+import { ThumbUp, ThumbDown, ChatBubble } from "@mui/icons-material";
 
 export const ArticlePreview = ({ article }) => {
   const navigate = useNavigate();

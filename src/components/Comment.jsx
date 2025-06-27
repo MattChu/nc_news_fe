@@ -1,9 +1,13 @@
-import { DeleteComment } from "./DeleteComment";
+import { useContext } from "react";
+
 import { formatDate } from "../utils/formatDate";
+
+import { DeleteComment } from "./DeleteComment";
+
+import { UserContext } from "../contexts/UserContext";
+
 import { Grid, Card, CardContent, Box, Typography, Divider, Badge } from "@mui/material";
 import { ThumbUp, ThumbDown } from "@mui/icons-material";
-import { UserContext } from "../contexts/UserContext";
-import { useContext } from "react";
 
 export const Comment = ({ comment, setComments, comments, setCommentCount }) => {
   const isPosiVotes = comment.votes >= 0;

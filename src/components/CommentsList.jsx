@@ -1,9 +1,12 @@
-import { fetchComments } from "../utils/fetchComments";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+
+import { fetchComments } from "../utils/fetchComments";
+
 import { Comment } from "./Comment";
 import { AddComment } from "./AddComment";
-import { Stack, Grid, Typography, Box, Card } from "@mui/material";
+
+import { Stack, Grid, Typography, Box, Button } from "@mui/material";
 
 export const CommentsList = ({ setCommentCount, comment_count }) => {
   const { article_id } = useParams();
@@ -54,18 +57,23 @@ export const CommentsList = ({ setCommentCount, comment_count }) => {
         <Grid
           container
           direction="row"
-          spacing={4}
+          spacing={0}
           sx={{
+            m: 0,
             minHeight: 104,
             p: 1,
+            pb: 2,
             justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
           }}
         >
-          <Typography color={"error"} textAlign={"center"} sx={{ p: 2.18 }}>
+          <Typography color={"error"} textAlign={"center"} sx={{ p: 1 }}>
             <strong>Failed to Load Comments</strong>
           </Typography>
+          <Button sx={{ bgcolor: "red" }} variant="contained" onClick={() => window.location.reload()}>
+            <Typography variant="subtitle1" fontSize={10}>
+              Click Here To Reload and Try Again
+            </Typography>
+          </Button>
         </Grid>
       );
     }

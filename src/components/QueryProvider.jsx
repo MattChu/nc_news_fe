@@ -1,6 +1,8 @@
-import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+
 import { fetchTopics } from "../utils/fetchTopics";
+
 import { FormControl, InputLabel, Select, MenuItem, Grid, Typography, Box } from "@mui/material";
 
 export const QueryProvider = () => {

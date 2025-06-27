@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useParams } from "react-router";
+
 import { postComment } from "../utils/postComment";
+
 import { UserContext } from "../contexts/UserContext";
-import { useContext } from "react";
-import { Card, CardHeader, Container, FormControl, Stack, TextField, Button, Box, Typography } from "@mui/material";
+
+import { Card, Container, TextField, Button, Box, Typography } from "@mui/material";
 
 export function AddComment({ setComments, comments, setCommentCount }) {
   const { article_id } = useParams();

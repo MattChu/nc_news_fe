@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
-import { UserContext } from "../contexts/UserContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+
+import { UserContext } from "../contexts/UserContext";
+
 import { AppBar, Toolbar, Typography, Grid, Button, Avatar } from "@mui/material";
-import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
 
 export const Header = () => {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);

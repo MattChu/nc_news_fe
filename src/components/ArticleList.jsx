@@ -1,6 +1,8 @@
-import { fetchArticles } from "../utils/fetchArticles";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+
+import { fetchArticles } from "../utils/fetchArticles";
+
 import { ArticlePreview } from "./ArticlePreview";
 import { QueryProvider } from "./QueryProvider";
 import { Loader } from "./Loader";

@@ -1,14 +1,16 @@
-import { useParams, Link } from "react-router";
 import { useEffect, useState } from "react";
-import { fetchArticleByID } from "../utils/fetchArticleByID";
-import { Vote } from "./Vote";
-import { formatDate } from "../utils/formatDate";
-import { CommentsList } from "./CommentsList";
-import { Uhoj } from "./Uhoj";
-import { ChatBubble } from "@mui/icons-material";
+import { useParams, Link } from "react-router";
 
-import { Card, CardHeader, CardMedia, Container, Badge, Grid, Typography, Box, Stack } from "@mui/material";
+import { fetchArticleByID } from "../utils/fetchArticleByID";
+import { formatDate } from "../utils/formatDate";
+
+import { Vote } from "./Vote";
+import { Uhoj } from "./Uhoj";
 import { Loader } from "./Loader";
+import { CommentsList } from "./CommentsList";
+
+import { Card, CardMedia, Container, Badge, Grid, Typography, Box, Stack } from "@mui/material";
+import { ChatBubble } from "@mui/icons-material";
 
 export const Article = () => {
   const { article_id } = useParams();

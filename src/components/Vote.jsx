@@ -1,8 +1,10 @@
-import { useParams } from "react-router";
 import { useState } from "react";
+import { useParams } from "react-router";
+
 import { patchArticleVotes } from "../utils/patchArticleVotes";
-import { FormControl, Grid, Badge, Typography, Button, Box } from "@mui/material";
-import { ThumbUp, ThumbDown, ChatBubble, ArrowUpward, ArrowDownward } from "@mui/icons-material";
+
+import { FormControl, Grid, Badge, Typography, Button } from "@mui/material";
+import { ThumbUp, ThumbDown, ArrowUpward, ArrowDownward } from "@mui/icons-material";
 
 export function Vote({ setVotes, votes }) {
   const { article_id } = useParams();

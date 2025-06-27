@@ -1,5 +1,6 @@
-import { deleteComment } from "../utils/deleteComment";
 import { useState } from "react";
+
+import { deleteComment } from "../utils/deleteComment";
 
 import { Box, Button, Typography, Grid } from "@mui/material";
 
