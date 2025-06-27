@@ -51,10 +51,10 @@ export function Vote({ setVotes, votes }) {
       return (
         <Grid
           container
-          direction="row"
-          spacing={4}
+          spacing={0}
           sx={{
-            minHeight: 104,
+            display: "flex",
+            flexDirection: "column",
             p: 1,
             justifyContent: "center",
             alignItems: "center",
@@ -64,6 +64,11 @@ export function Vote({ setVotes, votes }) {
           <Typography color={"error"} textAlign={"center"} sx={{ p: 2.18 }}>
             <strong>Vote Failed Please Try Again Later</strong>
           </Typography>
+          <Button sx={{ bgcolor: "red" }} variant="contained" onClick={() => window.location.reload()}>
+            <Typography variant="subtitle1" fontSize={10}>
+              Click Here To Reload and Try Again
+            </Typography>
+          </Button>
         </Grid>
       );
     }

@@ -47,16 +47,14 @@ export function DeleteComment({ setComments, comment_id, setCommentCount }) {
         <Grid
           container
           direction="row"
-          spacing={4}
           sx={{
             minHeight: 104,
-            p: 1,
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
           }}
         >
-          <Typography color={"error"} textAlign={"center"} sx={{ p: 2.18 }}>
+          <Typography color={"error"} textAlign={"center"}>
             <strong>Failed to Delete Comment</strong>
           </Typography>
           <Button sx={{ bgcolor: "red" }} variant="contained" onClick={() => window.location.reload()}>
@@ -68,22 +66,24 @@ export function DeleteComment({ setComments, comment_id, setCommentCount }) {
       );
     }
     return (
-      <Button
+      <Box
+        component="form"
         onSubmit={handleSubmit}
-        type="submit"
-        size="small"
-        variant="outlined"
-        sx={{
-          alignSelf: "center",
-          border: "ButtonText",
-          mt: 3,
-          p: 0,
-        }}
+        sx={{ pt: 1, display: "flex", flexDirection: "column", justifyContent: "right" }}
       >
-        <Typography variant="subtitle1" color="red" component="h4" fontSize={10}>
-          <strong>Delete Comment</strong>
-        </Typography>
-      </Button>
+        <Button
+          type="submit"
+          size="small"
+          variant="outlined"
+          sx={{
+            border: "ButtonText",
+          }}
+        >
+          <Typography variant="subtitle1" color="red" component="h4" fontSize={10}>
+            <strong>Delete Comment</strong>
+          </Typography>
+        </Button>
+      </Box>
     );
   };
 

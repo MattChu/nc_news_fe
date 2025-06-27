@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 
 import { formatDate } from "../utils/formatDate";
 
@@ -27,7 +27,7 @@ export const ArticlePreview = ({ article }) => {
           <Divider sx={{ my: 1 }} />
           <Box sx={{ my: 1 }}>
             <Typography variant="body2" size="small" sx={{ my: 2, color: "text.secondary" }}>
-              Written by {article.author} on {formatDate(article.created_at)}
+              Written by {article.author} on {formatDate(article.created_at)} in {article.topic}.
             </Typography>
           </Box>
           <Divider sx={{ my: 1 }} />

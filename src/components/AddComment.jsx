@@ -86,6 +86,7 @@ export function AddComment({ setComments, comments, setCommentCount }) {
             display: "flex",
             justifyContent: "center",
             mt: 2,
+            pb: 2,
             minWidth: 311,
           }}
         >
@@ -107,13 +108,16 @@ export function AddComment({ setComments, comments, setCommentCount }) {
                 maxWidth: 800,
                 display: "flex",
                 flexDirection: "column",
-                gap: 2,
               }}
             >
-              <Typography color={"error"} alignItems={"center"} sx={{ p: 2.18 }}>
+              <Typography color={"error"} sx={{ textAlign: "center", p: 2.18 }}>
                 <strong>Failed to Post Comment, Please Try Again Later</strong>
               </Typography>
-              <Button sx={{ bgcolor: "red" }} variant="contained" onClick={() => window.location.reload()}>
+              <Button
+                sx={{ bgcolor: "red", mt: 0, mb: 2 }}
+                variant="contained"
+                onClick={() => window.location.reload()}
+              >
                 <Typography variant="subtitle1" fontSize={10}>
                   Click Here To Reload and Try Again
                 </Typography>
@@ -146,7 +150,7 @@ export function AddComment({ setComments, comments, setCommentCount }) {
           }}
         >
           <FormControl>
-            <InputLabel for="comment" />
+            <InputLabel htmlFor="comment" />
             <TextField
               id="comment"
               fullWidth
