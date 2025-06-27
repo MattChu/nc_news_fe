@@ -73,7 +73,6 @@ export const Article = () => {
                   borderRadius: 2,
                 }}
                 image={article.article_img_url}
-                title={`Lead image for article ${article.title}`}
                 alt={`Lead image for article ${article.title}`}
               />
             </Grid>
@@ -83,7 +82,7 @@ export const Article = () => {
                 sx={{
                   maxWidth: 1200,
                   lineHeight: 1.2,
-                  textAlign: "justify",
+                  textAlign: "left",
                 }}
               >
                 {article.body}

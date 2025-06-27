@@ -5,7 +5,7 @@ import { postComment } from "../utils/postComment";
 
 import { UserContext } from "../contexts/UserContext";
 
-import { Card, Container, TextField, Button, Box, Typography } from "@mui/material";
+import { Card, Container, TextField, Button, Box, Typography, FormControl, InputLabel } from "@mui/material";
 
 export function AddComment({ setComments, comments, setCommentCount }) {
   const { article_id } = useParams();
@@ -130,18 +130,10 @@ export function AddComment({ setComments, comments, setCommentCount }) {
           maxWidth: 800,
           boxShadow: 6,
           px: 3,
-          py: 1,
+          py: 2,
           mt: 2,
         }}
       >
-        <Typography
-          sx={{
-            my: 1,
-          }}
-        >
-          Submit a Comment:
-        </Typography>
-
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -153,25 +145,30 @@ export function AddComment({ setComments, comments, setCommentCount }) {
             gap: 2,
           }}
         >
-          <TextField
-            fullWidth
-            multiline
-            rows={3}
-            label="Your comment (min 10 caracters)"
-            variant="outlined"
-            value={comment}
-            size="small"
-            onChange={handleChange}
-          />
-          <Button
-            type="submit"
-            size="small"
-            variant="contained"
-            disabled={comment.length < 10}
-            sx={{ alignSelf: "center", mb: 1 }}
-          >
-            <Typography>Submit Comment</Typography>
-          </Button>
+          <FormControl>
+            <InputLabel for="comment" />
+            <TextField
+              id="comment"
+              fullWidth
+              multiline
+              rows={3}
+              label="Submit a Comment"
+              variant="outlined"
+              value={comment}
+              size="small"
+              onChange={handleChange}
+              helperText="Minimum 10 characters required"
+            />
+            <Button
+              type="submit"
+              size="small"
+              variant="contained"
+              disabled={comment.length < 10}
+              sx={{ alignSelf: "center", mb: 1 }}
+            >
+              Submit Comment
+            </Button>
+          </FormControl>
         </Box>
       </Card>
     );

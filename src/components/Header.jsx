@@ -11,8 +11,8 @@ export const Header = () => {
     <AppBar sx={{ mt: 0, mb: 1, position: "sticky", borderRadius: 0, boxShadow: 10 }}>
       <Toolbar>
         <Typography
+          component="h1"
           variant="h1"
-          component={Link}
           to="/"
           sx={{
             fontSize: 20,

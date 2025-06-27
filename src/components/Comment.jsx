@@ -13,7 +13,7 @@ export const Comment = ({ comment, setComments, comments, setCommentCount }) => 
   const isPosiVotes = comment.votes >= 0;
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   return (
-    <Card sx={{ maxWidth: 320, boxShadow: 4, p: 2 }}>
+    <Card sx={{ maxWidth: 320, boxShadow: 4, p: 2, pb: 0 }}>
       <CardContent>
         <Box sx={{ mt: 0, mb: 3 }}>
           <Typography gutterBottom variant="body1" sx={{ textTransform: "capitalize" }}>

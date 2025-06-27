@@ -68,13 +68,22 @@ export function DeleteComment({ setComments, comment_id, setCommentCount }) {
       );
     }
     return (
-      <Box component="form" onSubmit={handleSubmit} sx={{ pt: 2, m: 0, display: "flex", justifyContent: "right" }}>
-        <Button type="submit" size="small" variant="contained" sx={{ alignSelf: "right", bgcolor: "red" }}>
-          <Typography variant="subtitle1" fontSize={10}>
-            Delete Comment
-          </Typography>
-        </Button>
-      </Box>
+      <Button
+        onSubmit={handleSubmit}
+        type="submit"
+        size="small"
+        variant="outlined"
+        sx={{
+          alignSelf: "center",
+          border: "ButtonText",
+          mt: 3,
+          p: 0,
+        }}
+      >
+        <Typography variant="subtitle1" color="red" component="h4" fontSize={10}>
+          <strong>Delete Comment</strong>
+        </Typography>
+      </Button>
     );
   };
 
