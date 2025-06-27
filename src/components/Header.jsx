@@ -6,7 +6,6 @@ import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
 
 export const Header = () => {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
-  console.log(loggedInUser.avatar_url);
   return (
     <AppBar sx={{ mt: 0, mb: 1, position: "sticky", borderRadius: 0, boxShadow: 10 }}>
       <Toolbar>

@@ -15,7 +15,6 @@ export const Topics = () => {
 
     asyncGetTopics();
   }, []);
-  console.log(topics[0]);
   return (
     <Stack sx={{ my: 2 }} spacing={3}>
       <Typography variant={"h2"} textAlign={"center"}>
